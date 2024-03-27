@@ -1,6 +1,6 @@
 import { FieldType, NumStrBool } from "./dbType";
 import fs from 'fs';
-import { checkSystemConfig, getAllRecords } from "./method";
+import { checkSystemConfig, getAllRecords, RecordKeyValue, transCsv2KeyValue } from "./method";
 
 export class FieldStruct {
     fieldname: string;
@@ -31,6 +31,21 @@ export class DbStruct {
 
     constructor() {
         this.data = [];
+        this.loadData();
     }
 
+    private async loadData() {
+        console.log('loadData');
+        const data = JSON.parse(fs.readFileSync('system.json', 'utf-8'))
+        if (!data) return;
+        if (!checkSystemConfig(data)) return;
+        await Promise.all(data.map(async (item: TableStruct) => {
+            item.records = await getAllRecords(item.tablename);
+        }));
+        this.data = data;
+    }
+
+    getTables() {
+        return this.data.map(({ tablename, fields }) => ({ tablename, fields }));
+    }
 }
