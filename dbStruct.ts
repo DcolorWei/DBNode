@@ -48,4 +48,30 @@ export class DbStruct {
     getTables() {
         return this.data.map(({ tablename, fields }) => ({ tablename, fields }));
     }
+
+    query(tablename: string, query: Array<Record<string, NumStrBool>>): Array<RecordKeyValue[]> {
+        const table = this.data.find(table => table.tablename === tablename);
+        if (!table) {
+            return [];
+        }
+        const result: Array<NumStrBool[]> = [];
+        table.records.forEach((record: NumStrBool[]) => {
+            let isMatch = true;
+            query.forEach(({ fieldname, value }) => {
+                const fieldIndex = table.fields.findIndex(field => field.fieldname === fieldname);
+                if (fieldIndex === -1) {
+                    isMatch = false;
+                    return;
+                }
+                if (record[fieldIndex] !== value) {
+                    isMatch = false;
+                    return;
+                }
+            });
+            if (isMatch) {
+                result.push(record);
+            }
+        });
+        return result.map(record => transCsv2KeyValue(record, table.fields));
+    }
 }
