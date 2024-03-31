@@ -1,3 +1,3 @@
-import { DbStruct } from "./dbStruct";
+import { TSDB } from "./dbStruct";
 
-const db = new DbStruct();
+const db = new TSDB();

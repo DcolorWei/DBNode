@@ -26,7 +26,7 @@ export class TableStruct {
     }
 }
 
-export class DbStruct {
+export class TSDB {
     data: Array<TableStruct>;
 
     constructor() {
@@ -35,6 +35,7 @@ export class DbStruct {
     }
 
     private async loadData() {
+        console.log('Loading data......');
         const datacsv = fs.readFileSync('system.csv', 'utf-8')
         datacsv.split("\r\n").forEach((item, index) => {
             if (index === 0) return;
