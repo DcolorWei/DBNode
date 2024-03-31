@@ -35,14 +35,35 @@ export class DbStruct {
     }
 
     private async loadData() {
-        console.log('loadData');
-        const data = JSON.parse(fs.readFileSync('system.json', 'utf-8'))
-        if (!data) return;
-        if (!checkSystemConfig(data)) return;
-        await Promise.all(data.map(async (item: TableStruct) => {
+        const datacsv = fs.readFileSync('system.csv', 'utf-8')
+        datacsv.split("\r\n").forEach((item, index) => {
+            if (index === 0) return;
+            const [tablename, fieldname, type, inuse] = item.split(",")
+            const targetTable = this.data.find(table => table.tablename === tablename)
+            if (targetTable) {
+                targetTable.fields.push({
+                    fieldname,
+                    type: type as FieldType,
+                    inuse: inuse === 'true'
+                })
+            } else {
+                this.data.push({
+                    tablename,
+                    fields: [{
+                        fieldname,
+                        type: type as FieldType,
+                        inuse: inuse === 'true'
+                    }],
+                    records: []
+                })
+            }
+        })
+        if (!this.data) return;
+        if (!checkSystemConfig(this.data)) return;
+        await Promise.all(this.data.map(async (item: TableStruct) => {
             item.records = await getAllRecords(item.tablename);
         }));
-        this.data = data;
+        console.log('Loaded data completely');
     }
 
     getTables() {
