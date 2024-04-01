@@ -1,0 +1,225 @@
+[
+    {
+        "tablename": "admin",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "account", "type": "string", "inuse": true },
+            {"fieldname": "password", "type": "string", "inuse": true },
+            {"fieldname": "name", "type": "string", "inuse": true },
+            {"fieldname": "email", "type": "string", "inuse": true },
+            {"fieldname": "tel", "type": "string", "inuse": true },
+            {"fieldname": "identify", "type": "string", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "clockin",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "orderId", "type": "number", "inuse": true },
+            {"fieldname": "sysName", "type": "string", "inuse": true },
+            {"fieldname": "lackTimes", "type": "number", "inuse": true },
+            {"fieldname": "createTime", "type": "string", "inuse": true },
+            {"fieldname": "updateTime", "type": "string", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "user",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "openid", "type": "string", "inuse": true },
+            {"fieldname": "name", "type": "string", "inuse": true },
+            {"fieldname": "email", "type": "string", "inuse": true },
+            {"fieldname": "tel", "type": "string", "inuse": true },
+            {"fieldname": "avatar", "type": "string", "inuse": true },
+            {"fieldname": "sysName", "type": "string", "inuse": true },
+            {"fieldname": "blackFlag", "type": "string", "inuse": true },
+            {"fieldname": "register", "type": "string", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "userremark",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "userId", "type": "number", "inuse": true },
+            {"fieldname": "type", "type": "string", "inuse": true },
+            {"fieldname": "content", "type": "string", "inuse": true },
+            {"fieldname": "createTime", "type": "string", "inuse": true },
+            {"fieldname": "supplement", "type": "string", "inuse": true },
+            {"fieldname": "sysUser", "type": "string", "inuse": true },
+            {"fieldname": "source", "type": "string", "inuse": true },
+            {"fieldname": "sourceId", "type": "string", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "order",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "userId", "type": "number", "inuse": true },
+            {"fieldname": "serviceName", "type": "string", "inuse": true },
+            {"fieldname": "orderContact", "type": "string", "inuse": true },
+            {"fieldname": "contactTel", "type": "string", "inuse": true },
+            {"fieldname": "travelers", "type": "string", "inuse": true },
+            {"fieldname": "orderPrice", "type": "number", "inuse": true },
+            {"fieldname": "payMethod", "type": "string", "inuse": true },
+            {"fieldname": "status", "type": "string", "inuse": true },
+            {"fieldname": "consultant", "type": "string", "inuse": true },
+            {"fieldname": "servicer", "type": "string", "inuse": true },
+            {"fieldname": "createTime", "type": "string", "inuse": true}
+        ]
+    },
+    {
+        "tablename": "traveler",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "orderId", "type": "number", "inuse": true },
+            {"fieldname": "serviceName", "type": "string", "inuse": true },
+            {"fieldname": "userId", "type": "number", "inuse": true },
+            {"fieldname": "traveler", "type": "string", "inuse": true },
+            {"fieldname": "table", "type": "string", "inuse": true },
+            {"fieldname": "currentStatus", "type": "string", "inuse": true },
+            {"fieldname": "createTime", "type": "string", "inuse": true },
+            {"fieldname": "updateTime", "type": "string", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "payment",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "orderId", "type": "number", "inuse": true },
+            {"fieldname": "openid", "type": "string", "inuse": true },
+            {"fieldname": "amount", "type": "number", "inuse": true },
+            {"fieldname": "payId", "type": "string", "inuse": true },
+            {"fieldname": "paycheck", "type": "string", "inuse": true },
+            {"fieldname": "createTime", "type": "string", "inuse": true },
+            {"fieldname": "updateTime", "type": "string", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "scanner",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "name", "type": "string", "inuse": true },
+            {"fieldname": "center", "type": "string", "inuse": true },
+            {"fieldname": "category", "type": "string", "inuse": true },
+            {"fieldname": "sub", "type": "string", "inuse": true },
+            {"fieldname": "alert", "type": "string", "inuse": true },
+            {"fieldname": "updateTime", "type": "string", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "scanneraccount",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "account", "type": "string", "inuse": true },
+            {"fieldname": "password", "type": "string", "inuse": true },
+            {"fieldname": "ruleName", "type": "string", "inuse": true },
+            {"fieldname": "lastUse", "type": "string", "inuse": true },
+            {"fieldname": "status", "type": "string", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "scannerrecord",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "scanerId", "type": "number", "inuse": true },
+            {"fieldname": "record", "type": "string", "inuse": true },
+            {"fieldname": "submitTime", "type": "string", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "scannerrule",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "ruleName", "type": "string", "inuse": true },
+            {"fieldname": "home", "type": "string", "inuse": true },
+            {"fieldname": "country", "type": "string", "inuse": true },
+            {"fieldname": "options", "type": "string", "inuse": true },
+            {"fieldname": "interval", "type": "string", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "scannersubscribe",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "adminAccount", "type": "string", "inuse": true },
+            {"fieldname": "scannerId", "type": "number", "inuse": true },
+            {"fieldname": "expectTime", "type": "string", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "table",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "tableName", "type": "string", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "tablefield",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true },
+            {"fieldname": "fieldName", "type": "string", "inuse": true },
+            {"fieldname": "fieldType", "type": "string", "inuse": true },
+            {"fieldname": "fieldRemark", "type": "string", "inuse": true },
+            {"fieldname": "fieldOptions", "type": "string", "inuse": true },
+            {"fieldname": "relateFieldOption", "type": "string", "inuse": true },
+            {"fieldname": "fieldIndex", "type": "string", "inuse": true },
+            {"fieldname": "tableId", "type": "number", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "table_psw申请人信息表",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "table_入台证申请人信息表",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "table_日本签证申请人信息表",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "table_申根签申请人信息表（中国）",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "table_申根签申请人信息表（美国）",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "table_申根签申请人信息表（英国）",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "table_美签申请人信息表",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "table_英国探亲旅游签证申请人填写表",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true }
+        ]
+    },
+    {
+        "tablename": "table_韩国签证申请人信息表",
+        "fields": [
+            {"fieldname": "id", "type": "number", "inuse": true }
+        ]
+    }
+
+
+]
