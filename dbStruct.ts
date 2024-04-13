@@ -1,6 +1,6 @@
 import { FieldType, NumStrBool } from "./dbType";
 import fs from 'fs';
-import { checkSystemConfig, getAllRecords } from "./method";
+import { checkSystemConfig, getAllRecords, RecordKeyValue, transCsv2KeyValue } from "./method";
 
 export class FieldStruct {
     fieldname: string;
@@ -26,11 +26,12 @@ export class TableStruct {
     }
 }
 
-export class DbStruct {
+export class TSDB {
     data: Array<TableStruct>;
 
     constructor() {
         this.data = [];
+        this.loadData();
     }
 
     async loadData() {
